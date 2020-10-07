@@ -1,3 +1,5 @@
+#pylint: disable=too-many-arguments
+
 import unittest
 from eating_cookies import eating_cookies
 
