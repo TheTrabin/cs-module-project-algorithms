@@ -166,13 +166,20 @@ def eating_cookies(n, cache):
         return eating_cookies(n -1, cache) + eating_cookies(n -2, cache) + eating_cookies(n - 3, cache)
 '''
 
-def eating_cookies(n):
-    if n == 0:
-        return 1
-    elif n < 1:
-        return 0
+def eating_cookies(n, jar=[]):
+    dict = [1,1,2,4]
+    i = 4
+    # if n == 0:
+    #     return 1
+    if n < 4:
+        return dict[n]
     else:
-        return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+        # return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+        while i <= n:
+            dict.append(sum(dict[i-3:i]))
+            i += 1
+
+    return dict[len(dict)-1]
 
 
 

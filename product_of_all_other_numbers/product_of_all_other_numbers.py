@@ -1,17 +1,14 @@
+from functools import reduce
+
 '''
 Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    prods = []
-    for i, _ in enumerate(arr):
-        nums = arr.copy()
-        nums.pop(i)
-        prod = 1
-        for n in nums:
-            prod *= n
-        prods.append(prod)
-        return prods
+    prod = []
+    for num in range(0, len(arr)):
+        prod.append(reduce(lambda x, y: x*y, [x for i, x in enumerate(arr) if i != num]))
+    return prod
 
 
 if __name__ == '__main__':
